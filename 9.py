@@ -1,6 +1,6 @@
 def read_files_json(name):
     import json
-    with open(name, 'rb') as f:
+    with open('newsafr.json', 'rb') as f:
         data = json.load(f)
         description_text = str()
         for items in data['rss']['channel']['items']:
@@ -10,7 +10,7 @@ def read_files_json(name):
 def read_files_xml(name):
     import xml.etree.ElementTree as ET
     parser = ET.XMLParser(encoding="utf-8")
-    tree = ET.parse(name, parser)
+    tree = ET.parse('newsafr.xml', parser)
     root = tree.getroot()
     news_xml = root.findall("channel/item")
     all_descr = []
